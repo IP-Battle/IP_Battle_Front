@@ -1,22 +1,40 @@
-import { Button, Radio, Slider, Typography } from '@material-tailwind/react'
-import useGoToPage from '../components/GoToPage/goToPage'
+import { Button } from '@material-tailwind/react'
+import { Cog8ToothIcon } from '@heroicons/react/16/solid'
 
 function RootPage() {
-  const goToPage = useGoToPage()
   return (
-    <div>
-      <Slider />
-      <div className='flex flex-col items-center justify-center'>
-        <p className='read-the-docs'>this is root page</p>
-        <Button onClick={goToPage('/top')} className='mt-2'>
-          topへ
-        </Button>
-        <br />
-        <Radio name='type' label='HTML' defaultChecked />
-        <Radio name='type' label='React' crossOrigin={undefined} />
-        <Typography className='rotate-12 font-extrabold'>Typography</Typography>
+    <>
+      <div className='p-12 flex justify-end w-full'>
+        <div className='w-3/5 text-left'>
+          <div className='text-6xl text-white underline font-semibold flex flex-col gap-8 mb-20'>
+            <div className='flex items-center'>
+              <p>IT</p>
+              <p>パスポート</p>
+            </div>
+            <p>オンライン対戦ゲーム</p>
+          </div>
+          <div className='flex flex-col gap-6 w-1/4'>
+            <Button
+              size='lg'
+              className='text-xl p-6 rounded-full'
+              style={{ backgroundColor: 'rgb(250, 199, 16)' }}
+            >
+              マッチング
+            </Button>
+            <Button
+              size='lg'
+              className='text-xl p-6 rounded-full'
+              style={{ backgroundColor: 'rgb(250, 199, 16)' }}
+            >
+              待機画面
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className='fixed bottom-0 right-0 m-4'>
+        <Cog8ToothIcon className='cursor-pointer size-20 text-gray-600'></Cog8ToothIcon>
+      </div>
+    </>
   )
 }
 
