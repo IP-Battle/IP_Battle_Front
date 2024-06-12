@@ -19,4 +19,5 @@
     "git.decorations.enabled": true,
     "git.enabled": true,
     "scm.diffDecorations": "all",
+    "css.lint.unknownAtRules": "ignore",
   }
