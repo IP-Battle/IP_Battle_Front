@@ -84,7 +84,14 @@ git checkout -b feat/...
 
 機能追加、修正等が終わったらcommit, pushを行ってください。
 
+```bash
+git push origin feat/...
+```
+
 必要に応じて(主にコンフリクトが起きた際)rebase, forth-pushをお願いします。
+
+プルリク後、レビューが必要であればgithub画面からレビュアーを設定してメンションしておいてください。
+問題なければマージします。
 
 ## UI ライブラリ
 
