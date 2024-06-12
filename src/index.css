@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-custom-background {
+  @apply bg-background;
+}
+
 @layer base {
+  body {
+    @apply bg-custom-background;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

@@ -10,7 +10,11 @@ export default withMT({
     '@node_modules/@material-tailwind/react/theme/utilities/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: 'rgb(45, 155, 240)',
+      },
+    },
   },
   plugins: [],
 })
