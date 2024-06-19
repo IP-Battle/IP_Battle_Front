@@ -2,14 +2,13 @@ import { cn } from '@/components/lib/utils'
 import { Button } from '@material-tailwind/react'
 import React from 'react'
 
-interface MyButtonProps {
+interface MyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
-  className?: string
-  onClick?: () => void
 }
 
 const MyButton = React.forwardRef<HTMLButtonElement, MyButtonProps>(
-  ({ children, className, ...props }, ref) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ children, className, color, ...props }, ref) => {
     return (
       <Button
         ref={ref}
