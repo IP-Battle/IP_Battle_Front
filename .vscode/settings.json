@@ -20,4 +20,9 @@
     "git.enabled": true,
     "scm.diffDecorations": "all",
     "css.lint.unknownAtRules": "ignore",
+    "css.lint.unknownProperties": "ignore",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+      "source.fixAll.eslint": "always"
+    },
   }
