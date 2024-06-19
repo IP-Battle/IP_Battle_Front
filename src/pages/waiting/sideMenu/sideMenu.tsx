@@ -7,8 +7,6 @@ const SideMenu = ({ children }: { children?: React.ReactNode }) => {
   const goToPage = useGoToPage()
   return (
     <div className='flex' style={{ minHeight: 'calc(100vh - 48px)' }}>
-      {' '}
-      {/* ここで minHeight を設定 */}
       <div className='flex flex-col justify-end gap-8 w-1/4'>
         <MyButton onClick={goToPage(ROUTES.WAITING)}>プレイ</MyButton>
         <MyButton onClick={goToPage(ROUTES.WAITING_CHAT)}>チャット</MyButton>
