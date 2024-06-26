@@ -2,6 +2,7 @@ import useGoToPage from '@/components/method/GoToPage/goToPage'
 import MyButton from '@/components/ui/Button/MyButton'
 import { ROUTES } from '@/constants/route'
 import { Cog8ToothIcon } from '@heroicons/react/16/solid'
+import MaleImg from '../images/Male.png'
 
 function RootPage() {
   const goToPage = useGoToPage()
@@ -9,7 +10,7 @@ function RootPage() {
     <>
       <div className='flex flex-col lg:flex-row justify-end w-full'>
         <div className='hidden lg:block lg:w-2/5'>
-          <p>（キャラクター）</p>
+          <img src={MaleImg} /> {/** 画像挿入の例 */}
         </div>
         <div className='w-full lg:w-3/5 text-left'>
           <div className='text-4xl lg:text-6xl text-white underline font-semibold flex flex-col gap-4 lg:gap-8 mb-16 lg:mb-20'>
