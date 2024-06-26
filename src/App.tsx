@@ -16,14 +16,15 @@ const App = () => {
   const [fooEvents, setFooEvents] = useState<string[]>([])
 
   useEffect(() => {
-    function onConnect() {
+    const onConnect = () => {
       setIsConnected(true)
     }
-    function onDisconnect() {
+    const onDisconnect = () => {
       setIsConnected(false)
     }
-    function onFooEvent(value: string) {
+    const onFooEvent = (value: string) => {
       setFooEvents((prev) => [...prev, value])
+      console.log(value)
     }
     socket.on('connect', onConnect)
     socket.on('disconnect', onDisconnect)
