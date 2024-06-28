@@ -21,8 +21,10 @@ function RootPage() {
             <p>（キャラクター）</p>
           </div>
           <div className='flex flex-col gap-6 lg:gap-6 w-full lg:w-1/4'>
-            <MyButton className='w-full lg:w-auto'>マッチング</MyButton>
-            <MyButton className='w-full lg:w-auto' onClick={goToPage(ROUTES.WAITING)}>
+            <MyButton className='w-full lg:w-auto' onClick={() => goToPage(ROUTES.MATCHING)}>
+              マッチング
+            </MyButton>
+            <MyButton className='w-full lg:w-auto' onClick={() => goToPage(ROUTES.WAITING)}>
               待機画面
             </MyButton>
           </div>

@@ -4,5 +4,6 @@ export const ROUTES = {
   WAITING_CHAT: '/waiting/chat',
   WAITING_PROBLOG: '/waiting/probLog',
   WAITING_NOTE: '/waiting/note',
-  // 他のパスも必要に応じて追加
+  MATCHING: '/matching',
+  MATCHING_PLAY: '/matching/play',
 }
