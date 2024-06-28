@@ -4,6 +4,8 @@ import { ConnectionManager } from './components/socket/ConnectionManager'
 import { ConnectionState } from './components/socket/ConnectionState'
 import { Events } from './components/socket/Events'
 import { ROUTES } from './constants/route'
+import MatchingPage from './pages/matching/page'
+import PlayPage from './pages/matching/play/page'
 import RootPage from './pages/page'
 import ChatPage from './pages/waiting/chat/page'
 import NotePage from './pages/waiting/note/page'
@@ -51,6 +53,8 @@ const App = () => {
           <Route path={ROUTES.WAITING_CHAT} element={<ChatPage />}></Route>
           <Route path={ROUTES.WAITING_PROBLOG} element={<ProbLogPage />}></Route>
           <Route path={ROUTES.WAITING_NOTE} element={<NotePage />}></Route>
+          <Route path={ROUTES.MATCHING} element={<MatchingPage />}></Route>
+          <Route path={ROUTES.MATCHING_PLAY} element={<PlayPage />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

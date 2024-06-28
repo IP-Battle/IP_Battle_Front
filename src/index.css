@@ -12,3 +12,44 @@
 .bg-custom-background {
   @apply bg-background;
 }
+
+.octagon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* margin-bottom: 1rem; */
+}
+
+.octagon {
+  position: relative;
+  width: 250px;
+  height: 60px;
+  background-color: rgb(250, 199, 16);
+  /* margin: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+.octagon:before,
+.octagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+
+.octagon:before {
+  bottom: 100%;
+  border-bottom: 20px solid rgb(250, 199, 16);
+}
+
+.octagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 20px solid rgb(250, 199, 16);
+}
