@@ -4,7 +4,7 @@ const useGoToPage = () => {
   const navigate = useNavigate()
 
   const goToPage = (path: string) => {
-    return () => navigate(path)
+    navigate(path)
   }
 
   return goToPage
