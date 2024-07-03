@@ -8,6 +8,7 @@ interface AnswerButtonProps {
 }
 
 const PlayPage = () => {
+  // 例
   const question =
     '事業者の信用維持や需要者の混同を回避するために、更新の申請を繰り返すことで、実質的に永続的な権利保有が可能な工業所有権はどれか。'
   const answers = ['意匠権', '実用新案権', '商標権', '特許権']
@@ -17,15 +18,17 @@ const PlayPage = () => {
 
   const AnswerButton: React.FC<AnswerButtonProps> = ({ answer }) => (
     <div className='w-5/12'>
-      <MyButton fullWidth>{answer}</MyButton>
+      <MyButton className='rounded-xl' fullWidth>
+        {answer}
+      </MyButton>
     </div>
   )
 
   return (
     <div className='flex flex-col items-center justify-center p-4 gap-8'>
       <div className='octagon-wrapper'>
-        <div className='octagon'>残り時間: {}s</div>
-        <div className='octagon'>自分のスコア: {}</div>
+        <div className='octagon text-black'>残り時間: {}s</div>
+        <div className='octagon text-black'>自分のスコア: {}</div>
       </div>
       <Card
         className='w-full max-w-full text-white max-h-screen overflow-y-auto p-4'
