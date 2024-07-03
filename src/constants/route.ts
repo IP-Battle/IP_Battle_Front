@@ -6,4 +6,5 @@ export const ROUTES = {
   WAITING_NOTE: '/waiting/note',
   MATCHING: '/matching',
   MATCHING_PLAY: '/matching/play',
+  CONFIG: '/config',
 }

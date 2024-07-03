@@ -31,7 +31,10 @@ function RootPage() {
         </div>
       </div>
       <div className='fixed bottom-0 right-0 m-4'>
-        <Cog8ToothIcon className='cursor-pointer size-20 text-gray-600'></Cog8ToothIcon>
+        <Cog8ToothIcon
+          className='cursor-pointer size-20 text-gray-600'
+          onClick={() => goToPage(ROUTES.CONFIG)}
+        ></Cog8ToothIcon>
       </div>
     </>
   )
