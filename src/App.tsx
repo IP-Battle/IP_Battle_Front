@@ -34,7 +34,7 @@ const App = () => {
   const [isConnected, setIsConnected] = useState(socket.connected)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [playerId, setPlayerId] = useState<string | undefined>()
-  const [question, setQuestion] = useState<string | undefined>()
+  const [question, setQuestion] = useState<questionType | undefined>()
 
   useEffect(() => {
     const onConnect = () => {
@@ -47,7 +47,7 @@ const App = () => {
       setPlayerId(playerid)
     }
     const onResponseQuestion = (question: questionType) => {
-      console.log(question)
+      setQuestion(question)
     }
     const onGameStart = () => {
       goToPage(ROUTES.MATCHING_PLAY)
