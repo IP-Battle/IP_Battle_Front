@@ -2,11 +2,16 @@ import useGoToPage from '@/components/method/GoToPage/goToPage'
 import { ROUTES } from '@/constants/route'
 import { useRoom } from '@/contexts/RoomContext'
 import { socket } from '@/socket'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+export interface RoomIdProps {
+  roomId: number
+}
 
 const MatchingPage = () => {
   const { setRoomId } = useRoom()
   const goToPage = useGoToPage()
+  const [roomId, setRoomId] = useState<number>()
 
   useEffect(() => {
     socket.emit('matching')
