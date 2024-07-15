@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react'
 const FinishWaitingPage = () => {
   const [message, setMessage] = useState<string>()
   useEffect(() => {
-    const onGameFinish = (judge: boolean) => {
-      judge = true
-      if (judge) {
+    const onGameFinish = (judge: number) => {
+      if (judge === 0) {
         setMessage('勝利！')
-      } else {
+      } else if(judge === 1) {
         setMessage('敗北...')
+      }else {
+        setMessage('引き分け')
       }
     }
     socket.on('gameFinish', onGameFinish)
