@@ -2,6 +2,7 @@ import { questionType } from '@/App'
 import useGoToPage from '@/components/method/GoToPage/goToPage'
 import MyButton from '@/components/ui/Button/MyButton'
 import { ROUTES } from '@/constants/route'
+import { useRoom } from '@/contexts/RoomContext'
 import '@/index.css'
 import { socket } from '@/socket'
 import { Card, CardBody } from '@material-tailwind/react'
@@ -16,7 +17,8 @@ interface AnswerButtonProps {
   isCorrect: boolean | undefined
 }
 
-const PlayPage = (props: RoomIdProps) => {
+const PlayPage = () => {
+  const { roomId } = useRoom()
   const LIMIT_TIME = 180
   const [question, setQuestion] = useState<questionType | undefined>()
   const [results, setResults] = useState<{ [id: number]: boolean }>({})
@@ -90,7 +92,7 @@ const PlayPage = (props: RoomIdProps) => {
       const newRemainingTime = LIMIT_TIME - elapsed
 
       if (newRemainingTime <= 0) {
-        socket.emit('gameEnd', props.roomId, results)
+        socket.emit('gameEnd', roomId, results)
         goToPage(ROUTES.FINISH_WAITING)
       } else {
         setRemainingTime(newRemainingTime)
