@@ -18,7 +18,7 @@ interface AnswerButtonProps {
 
 const PlayPage = () => {
   const { roomId } = useRoom()
-  const LIMIT_TIME = 180
+  const LIMIT_TIME = 60
   const [question, setQuestion] = useState<questionType | undefined>()
   const [results, setResults] = useState<{ [id: number]: boolean }>({})
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
@@ -53,6 +53,11 @@ const PlayPage = () => {
         [question.id]: isCorrect,
       }))
       setSelectedIndex(index)
+
+      sleep(1000).then(() => {
+        setSelectedIndex(null)
+        socket.emit('feachQuestion', { ...results, [question.id]: isCorrect })
+      })
     }
   }
 
@@ -137,5 +142,8 @@ const PlayPage = () => {
     </div>
   )
 }
+
+const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));//timeはミリ秒
+
 
 export default PlayPage
