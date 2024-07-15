@@ -10,7 +10,7 @@ const ConfigPage = () => {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div className='p-12'>
       <div className='flex flex-col items-end'>
         <MyButton className='w-1/4 rounded-xl mb-4' onClick={() => navigate(-1)}>
           戻る
