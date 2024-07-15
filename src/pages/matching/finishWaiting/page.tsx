@@ -7,7 +7,7 @@ const FinishWaitingPage = () => {
     const onGameFinish = (judge: number) => {
       if (judge === 0) {
         setMessage('勝利！')
-      } else if(judge === 1) {
+      } else if (judge === 1) {
         setMessage('敗北...')
       }else {
         setMessage('引き分け')
