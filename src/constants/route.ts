@@ -7,4 +7,5 @@ export const ROUTES = {
   MATCHING: '/matching',
   MATCHING_PLAY: '/matching/play',
   CONFIG: '/config',
+  FINISH_WAITING: '/matching/play/waiting',
 }

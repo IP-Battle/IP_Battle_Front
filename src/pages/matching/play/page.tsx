@@ -1,5 +1,7 @@
 import { questionType } from '@/App'
+import useGoToPage from '@/components/method/GoToPage/goToPage'
 import MyButton from '@/components/ui/Button/MyButton'
+import { ROUTES } from '@/constants/route'
 import '@/index.css'
 import { socket } from '@/socket'
 import { Card, CardBody } from '@material-tailwind/react'
@@ -14,9 +16,13 @@ interface AnswerButtonProps {
 }
 
 const PlayPage = () => {
+  const LIMIT_TIME = 180
   const [question, setQuestion] = useState<questionType | undefined>()
   const [results, setResults] = useState<{ [id: number]: boolean }>({})
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [startTime] = useState<number>(Date.now())
+
+  const goToPage = useGoToPage()
 
   useEffect(() => {
     const onResponseQuestion = (question: questionType) => {
@@ -74,22 +80,27 @@ const PlayPage = () => {
     </div>
   )
 
-  const [remainingTime, setRemainingTime] = useState(180)
+  const [remainingTime, setRemainingTime] = useState(LIMIT_TIME)
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setRemainingTime((prevTime) => {
-        if (prevTime <= 1) {
-          clearInterval(timer)
-          socket.emit('gameEnd', results)
-          return 0
-        }
-        return prevTime - 1
-      })
-    }, 1000)
+    const updateRemainingTime = () => {
+      const now = Date.now()
+      const elapsed = Math.floor((now - startTime) / 1000)
+      const newRemainingTime = LIMIT_TIME - elapsed
+
+      if (newRemainingTime <= 0) {
+        socket.emit('gameEnd', results)
+        goToPage(ROUTES.FINISH_WAITING)
+      } else {
+        setRemainingTime(newRemainingTime)
+      }
+    }
+
+    const timer = setInterval(updateRemainingTime, 1000)
+    updateRemainingTime()
 
     return () => clearInterval(timer)
-  }, [results])
+  }, [startTime, results, goToPage])
 
   return (
     <div className='flex flex-col items-center justify-center p-4 gap-8'>
