@@ -7,7 +7,6 @@ import '@/index.css'
 import { socket } from '@/socket'
 import { Card, CardBody } from '@material-tailwind/react'
 import { useEffect, useState } from 'react'
-import { RoomIdProps } from '../page'
 
 interface AnswerButtonProps {
   answer: string
