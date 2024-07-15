@@ -2,15 +2,19 @@ import useGoToPage from '@/components/method/GoToPage/goToPage'
 import MyButton from '@/components/ui/Button/MyButton'
 import { ROUTES } from '@/constants/route'
 import { Cog8ToothIcon } from '@heroicons/react/16/solid'
-import MaleImg from '../images/Male.png'
+import Female from '../images/Female.png'
+import Male from '../images/Male.png'
 
 function RootPage() {
   const goToPage = useGoToPage()
   return (
-    <>
+    <div className='flex items-center justify-center min-h-screen h-20'>
       <div className='flex flex-col lg:flex-row justify-end w-full'>
-        <div className='hidden lg:block lg:w-2/5'>
-          <img src={MaleImg} /> {/** 画像挿入の例 */}
+        <div className='hidden lg:block lg:w-1/4'>
+          <img src={Male} style={{ marginRight: '-50px' }} /> {/** 画像挿入の例 */}
+        </div>
+        <div className='hidden lg:block lg:w-1/4'>
+          <img src={Female} style={{ marginLeft: '-50px' }} />
         </div>
         <div className='w-full lg:w-3/5 text-left'>
           <div className='text-4xl lg:text-6xl text-white underline font-semibold flex flex-col gap-4 lg:gap-8 mb-16 lg:mb-20'>
@@ -36,7 +40,7 @@ function RootPage() {
           onClick={() => goToPage(ROUTES.CONFIG)}
         ></Cog8ToothIcon>
       </div>
-    </>
+    </div>
   )
 }
 
