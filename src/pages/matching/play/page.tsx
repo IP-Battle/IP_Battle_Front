@@ -6,6 +6,7 @@ import '@/index.css'
 import { socket } from '@/socket'
 import { Card, CardBody } from '@material-tailwind/react'
 import { useEffect, useState } from 'react'
+import { RoomIdProps } from '../page'
 
 interface AnswerButtonProps {
   answer: string
@@ -15,7 +16,7 @@ interface AnswerButtonProps {
   isCorrect: boolean | undefined
 }
 
-const PlayPage = () => {
+const PlayPage = (props: RoomIdProps) => {
   const LIMIT_TIME = 180
   const [question, setQuestion] = useState<questionType | undefined>()
   const [results, setResults] = useState<{ [id: number]: boolean }>({})
@@ -89,7 +90,7 @@ const PlayPage = () => {
       const newRemainingTime = LIMIT_TIME - elapsed
 
       if (newRemainingTime <= 0) {
-        socket.emit('gameEnd', results)
+        socket.emit('gameEnd', props.roomId, results)
         goToPage(ROUTES.FINISH_WAITING)
       } else {
         setRemainingTime(newRemainingTime)
