@@ -9,11 +9,14 @@ interface AnswerButtonProps {
   answer: string
   index: number
   onSelect: (index: number) => void
+  isSelected: boolean | undefined
+  isCorrect: boolean | undefined
 }
 
 const PlayPage = () => {
   const [question, setQuestion] = useState<questionType | undefined>()
   const [results, setResults] = useState<{ [id: number]: boolean }>({})
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   useEffect(() => {
     const onResponseQuestion = (question: questionType) => {
@@ -41,12 +44,31 @@ const PlayPage = () => {
         ...prevResults,
         [question.id]: isCorrect,
       }))
+      setSelectedIndex(index)
     }
   }
 
-  const AnswerButton: React.FC<AnswerButtonProps> = ({ answer, index, onSelect }) => (
-    <div className='w-5/12'>
-      <MyButton className='rounded-xl' fullWidth onClick={() => onSelect(index)}>
+  const AnswerButton: React.FC<AnswerButtonProps> = ({
+    answer,
+    index,
+    onSelect,
+    isSelected,
+    isCorrect,
+  }) => (
+    <div className='w-5/12 relative'>
+      {isSelected !== undefined && (
+        <div
+          className={`absolute top-0 left-0 right-0 flex justify-center items-center h-full pointer-events-none text-6xl ${isCorrect ? 'text-green-500' : 'text-red-500'}`}
+        >
+          {isCorrect ? '〇' : '×'}
+        </div>
+      )}
+      <MyButton
+        className='rounded-xl'
+        fullWidth
+        onClick={() => onSelect(index)}
+        disabled={selectedIndex !== null}
+      >
         {answer}
       </MyButton>
     </div>
@@ -90,6 +112,12 @@ const PlayPage = () => {
             answer={`${answerPrefixes[index]}. ${answer}`}
             index={index}
             onSelect={handleSelect}
+            isSelected={selectedIndex !== null ? selectedIndex === index : undefined}
+            isCorrect={
+              selectedIndex !== null && question
+                ? question.answer === answerPrefixes[index]
+                : undefined
+            }
           />
         ))}
       </div>
