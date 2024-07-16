@@ -11,7 +11,7 @@ function RootPage() {
     <div className='flex items-center justify-center min-h-screen h-20'>
       <div className='flex flex-col lg:flex-row justify-end w-full'>
         <div className='hidden lg:block lg:w-1/4'>
-          <img src={Male} style={{ marginRight: '-50px' }} /> {/** 画像挿入の例 */}
+          <img src={Male} style={{ marginRight: '-50px' }} />
         </div>
         <div className='hidden lg:block lg:w-1/4'>
           <img src={Female} style={{ marginLeft: '-50px' }} />
@@ -21,8 +21,13 @@ function RootPage() {
             <p>ITパスポート</p>
             <p>オンライン対戦ゲーム</p>
           </div>
-          <div className='lg:hidden'>
-            <p>（キャラクター）</p>
+          <div className='lg:hidden flex justify-center gap-4'>
+            <div className='w-1/2 lg:w-auto'>
+              <img src={Male} />
+            </div>
+            <div className='w-1/2 lg:w-auto -ml-10'>
+              <img src={Female} />
+            </div>
           </div>
           <div className='flex flex-col gap-6 lg:gap-6 w-full lg:w-1/4'>
             <MyButton className='w-full lg:w-auto' onClick={() => goToPage(ROUTES.MATCHING)}>
