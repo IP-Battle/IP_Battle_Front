@@ -33,9 +33,8 @@ export type questionType = {
 const App = () => {
   const goToPage = useGoToPage()
   const [isConnected, setIsConnected] = useState(socket.connected)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [playerId, setPlayerId] = useState<string | undefined>()
-  const [question, setQuestion] = useState<questionType | undefined>()
+  const [, setPlayerId] = useState<string | undefined>()
+  const [, setQuestion] = useState<questionType | undefined>()
 
   useEffect(() => {
     const onConnect = () => {
