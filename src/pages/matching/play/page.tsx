@@ -107,7 +107,7 @@ const PlayPage = () => {
     updateRemainingTime()
 
     return () => clearInterval(timer)
-  }, [startTime, results, goToPage])
+  }, [startTime, results, goToPage, roomId])
 
   return (
     <div className='flex flex-col items-center justify-center p-4 gap-8'>
